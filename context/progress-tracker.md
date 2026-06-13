@@ -12,14 +12,8 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Completed
 
-- `context/feature-specs/01-design-system.md` — design system setup complete:
-  - shadcn/ui installed and configured (components.json, Tailwind v4, CSS variables)
-  - Dark theme CSS custom properties added to globals.css via @theme inline
-  - lib/utils.ts created with cn() helper (clsx + tailwind-merge)
-  - lucide-react installed
-  - shadcn components added: Button, Card, Input, Tabs, Textarea, Scroll Area
-  - All components import without TypeScript errors
-  - Production build passes cleanly
+- `context/feature-specs/01-design-system.md` — shadcn/ui configured with Tailwind v4, dark theme CSS tokens, cn() helper, and core UI components (Button, Card, Input, Tabs, Textarea, Scroll Area)
+- `context/feature-specs/02-editor.md` — editor chrome shell: navbar with sidebar toggle, floating project sidebar with tabs and empty states, reusable dialog pattern
 
 ## In Progress
 
