@@ -4,7 +4,6 @@ We are adding the design system and UI primitive components.
 
 Install and configure `shadnc/ui`. 
 
-
 Add these shadcn componnets: 
 - Button
 - Card

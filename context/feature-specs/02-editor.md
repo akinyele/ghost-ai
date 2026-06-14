@@ -4,7 +4,7 @@ We need the base chrom components that frame every editor screen - teh top navba
 
 ### Editor Navbar 
 
-Create `components/editor/editor/editor-navbar.tsc`
+Create `components/editor/editor-navbar.tsx`
 
 
 Requirements: 
@@ -12,7 +12,7 @@ Requirements:
 - fixed-height top navbar
 - left, center, and right sections
 - left section contains sidebar toggle button 
-- use `PanelLeftOpen` / `PanelLEftClos` icons based on sidebar state 
+- use `PanelLeftOpen` / `PanelLeftClose` icons based on sidebar state
 - right section staty empty for now.
 - dark background with suble bottom border
 
