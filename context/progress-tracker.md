@@ -15,6 +15,7 @@ Update this file whenever the current phase, active feature, or implementation s
 - `context/feature-specs/01-design-system.md` — shadcn/ui configured with Tailwind v4, dark theme CSS tokens, cn() helper, and core UI components (Button, Card, Input, Tabs, Textarea, Scroll Area)
 - `context/feature-specs/02-editor.md` — editor chrome shell: navbar with sidebar toggle, floating project sidebar with tabs and empty states, reusable dialog pattern
 - `context/feature-specs/03-auth.md` — Clerk authentication integrated with ClerkProvider, proxy.ts route protection, sign-in/sign-up pages with two-panel layout, UserButton in editor navbar, root redirect logic
+- `context/feature-specs/04-project-dialogs.md` — editor home screen, Create/Rename/Delete project dialogs, sidebar project items with rename/delete actions (owned only), mobile backdrop scrim, `useProjectDialogs` hook
 
 ## In Progress
 
