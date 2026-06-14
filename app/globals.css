@@ -91,4 +91,43 @@
     background-color: var(--bg-base);
     color: var(--text-primary);
   }
+
+  /* Clerk theme overrides using app CSS variables */
+  .cl-modal {
+    background-color: var(--bg-surface);
+  }
+
+  .cl-card {
+    background-color: var(--bg-surface);
+    border-color: var(--border-default);
+  }
+
+  .cl-internal-b3fm6y {
+    background-color: var(--bg-base);
+  }
+
+  .cl-form-field input,
+  .cl-form-field textarea,
+  .cl-form-field select {
+    background-color: var(--bg-elevated);
+    border-color: var(--border-default);
+    color: var(--text-primary);
+  }
+
+  .cl-form-field input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .cl-button-primary {
+    background-color: var(--accent-primary);
+    color: var(--bg-base);
+  }
+
+  .cl-button-primary:hover {
+    background-color: var(--accent-primary-dim);
+  }
+
+  .cl-footer-link {
+    color: var(--accent-primary);
+  }
 }
