@@ -4,7 +4,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- Phase 1: Design System & UI Primitives
+- Phase 1: Core Features: Design System, Editor Chrome, and Authentication
 
 ## Current Goal
 
@@ -14,6 +14,7 @@ Update this file whenever the current phase, active feature, or implementation s
 
 - `context/feature-specs/01-design-system.md` — shadcn/ui configured with Tailwind v4, dark theme CSS tokens, cn() helper, and core UI components (Button, Card, Input, Tabs, Textarea, Scroll Area)
 - `context/feature-specs/02-editor.md` — editor chrome shell: navbar with sidebar toggle, floating project sidebar with tabs and empty states, reusable dialog pattern
+- `context/feature-specs/03-auth.md` — Clerk authentication integrated with ClerkProvider, proxy.ts route protection, sign-in/sign-up pages with two-panel layout, UserButton in editor navbar, root redirect logic
 
 ## In Progress
 
