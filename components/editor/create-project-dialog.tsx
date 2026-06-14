@@ -4,15 +4,12 @@ import { EditorDialog } from "@/components/editor/editor-dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 
-function toSlug(name: string) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
-}
-
 interface CreateProjectDialogProps {
   isOpen: boolean
   onClose: () => void
   name: string
   onNameChange: (value: string) => void
+  roomIdPreview: string
   isLoading: boolean
   onSubmit: () => void
 }
@@ -22,11 +19,10 @@ export function CreateProjectDialog({
   onClose,
   name,
   onNameChange,
+  roomIdPreview,
   isLoading,
   onSubmit,
 }: CreateProjectDialogProps) {
-  const slug = toSlug(name)
-
   return (
     <EditorDialog
       isOpen={isOpen}
@@ -52,8 +48,8 @@ export function CreateProjectDialog({
           onChange={(e) => onNameChange(e.target.value)}
           autoFocus
         />
-        {slug && (
-          <p className="text-xs text-text-muted font-mono">ghost.ai/{slug}</p>
+        {roomIdPreview && (
+          <p className="text-xs text-text-muted font-mono">ghost.ai/{roomIdPreview}</p>
         )}
       </div>
     </EditorDialog>

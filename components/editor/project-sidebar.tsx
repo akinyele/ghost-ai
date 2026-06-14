@@ -4,28 +4,27 @@ import { X, Plus, Pencil, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs"
 import { ScrollArea } from "@/components/ui/scroll-area"
-import type { Project } from "@/lib/mock-projects"
+import type { SidebarProject } from "@/lib/project-data"
 
 interface ProjectSidebarProps {
   isOpen: boolean
   onClose: () => void
-  projects: Project[]
+  ownedProjects: SidebarProject[]
+  sharedProjects: SidebarProject[]
   onNewProject: () => void
-  onRenameProject: (project: Project) => void
-  onDeleteProject: (project: Project) => void
+  onRenameProject: (project: SidebarProject) => void
+  onDeleteProject: (project: SidebarProject) => void
 }
 
 export function ProjectSidebar({
   isOpen,
   onClose,
-  projects,
+  ownedProjects,
+  sharedProjects,
   onNewProject,
   onRenameProject,
   onDeleteProject,
 }: ProjectSidebarProps) {
-  const myProjects = projects.filter((p) => p.role === "owner")
-  const sharedProjects = projects.filter((p) => p.role === "collaborator")
-
   return (
     <>
       {isOpen && (
@@ -62,14 +61,14 @@ export function ProjectSidebar({
               </TabsTrigger>
             </TabsList>
             <TabsContent value="my-projects" className="flex-1 overflow-hidden mt-2">
-              {myProjects.length === 0 ? (
+              {ownedProjects.length === 0 ? (
                 <div className="flex h-full items-center justify-center">
                   <p className="text-sm text-text-muted">No projects yet</p>
                 </div>
               ) : (
                 <ScrollArea className="h-full">
                   <ul className="space-y-0.5 py-1">
-                    {myProjects.map((project) => (
+                    {ownedProjects.map((project) => (
                       <li key={project.id}>
                         <ProjectItem
                           project={project}
@@ -114,9 +113,9 @@ export function ProjectSidebar({
 }
 
 interface ProjectItemProps {
-  project: Project
-  onRename?: (project: Project) => void
-  onDelete?: (project: Project) => void
+  project: SidebarProject
+  onRename?: (project: SidebarProject) => void
+  onDelete?: (project: SidebarProject) => void
 }
 
 function ProjectItem({ project, onRename, onDelete }: ProjectItemProps) {

@@ -17,6 +17,8 @@ Update this file whenever the current phase, active feature, or implementation s
 - `context/feature-specs/03-auth.md` — Clerk authentication integrated with ClerkProvider, proxy.ts route protection, sign-in/sign-up pages with two-panel layout, UserButton in editor navbar, root redirect logic
 - `context/feature-specs/04-project-dialogs.md` — editor home screen, Create/Rename/Delete project dialogs, sidebar project items with rename/delete actions (owned only), mobile backdrop scrim, `useProjectDialogs` hook
 - `context/feature-specs/05-prisma.md` — Prisma schema with `Project` and `ProjectCollaborator` models, `lib/prisma.ts` cached singleton (Accelerate vs PG adapter branching), initial migration applied, client generated to `app/generated/prisma/`
+- `context/feature-specs/06-project-apis.md` — REST project API routes: `GET /api/projects`, `POST /api/projects`, `PATCH /api/projects/[projectId]`, `DELETE /api/projects/[projectId]`. Auth via Clerk `auth()`, 401 for unauthenticated, 403 for non-owner mutations. Backend only, no UI wiring.
+- `context/feature-specs/07-wire-editor-home.md` — editor home page wired to real project API: server-side data fetch via `lib/project-data.ts` (`getProjectsForUser`), `useProjectActions` hook with create/rename/delete mutations, create navigates to new workspace, delete redirects if on active workspace, `SidebarProject` type replaces mock type throughout sidebar and dialogs.
 
 ## In Progress
 
