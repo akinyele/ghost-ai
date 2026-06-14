@@ -1,5 +1,4 @@
 import { SignUp } from "@clerk/nextjs";
-import { dark } from "@clerk/ui/themes";
 import { Cpu, Users, FileCode } from "lucide-react";
 
 export default function SignUpPage() {
@@ -69,22 +68,7 @@ export default function SignUpPage() {
         style={{ backgroundColor: "var(--bg-base)" }}
       >
         <div className="w-full max-w-md">
-          <SignUp
-            appearance={{
-              baseTheme: dark,
-              variables: {
-                fontFamily: "var(--font-geist-sans)",
-                fontFamilyButtons: "var(--font-geist-sans)",
-                colorBackground: "var(--bg-surface)",
-                colorInputBackground: "var(--bg-elevated)",
-                colorInputText: "var(--text-primary)",
-                colorText: "var(--text-primary)",
-                colorTextSecondary: "var(--text-secondary)",
-                colorPrimary: "var(--accent-primary)",
-                borderRadius: "0.75rem",
-              },
-            }}
-          />
+          <SignUp />
         </div>
       </div>
     </div>

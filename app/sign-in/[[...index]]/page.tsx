@@ -1,5 +1,4 @@
 import { SignIn } from "@clerk/nextjs";
-import { dark } from "@clerk/ui/themes";
 import { Cpu, Users, FileCode } from "lucide-react";
 
 export default function SignInPage() {
@@ -69,22 +68,7 @@ export default function SignInPage() {
         style={{ backgroundColor: "var(--bg-base)" }}
       >
         <div className="w-full max-w-md">
-          <SignIn
-            appearance={{
-              baseTheme: dark,
-              variables: {
-                fontFamily: "var(--font-geist-sans)",
-                fontFamilyButtons: "var(--font-geist-sans)",
-                colorBackground: "var(--bg-surface)",
-                colorInputBackground: "var(--bg-elevated)",
-                colorInputText: "var(--text-primary)",
-                colorText: "var(--text-primary)",
-                colorTextSecondary: "var(--text-secondary)",
-                colorPrimary: "var(--accent-primary)",
-                borderRadius: "0.75rem",
-              },
-            }}
-          />
+          <SignIn />
         </div>
       </div>
     </div>
