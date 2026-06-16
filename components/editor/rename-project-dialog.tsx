@@ -3,12 +3,12 @@
 import { EditorDialog } from "@/components/editor/editor-dialog"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import type { Project } from "@/lib/mock-projects"
+import type { SidebarProject } from "@/lib/project-data"
 
 interface RenameProjectDialogProps {
   isOpen: boolean
   onClose: () => void
-  project: Project | null
+  project: SidebarProject | null
   name: string
   onNameChange: (value: string) => void
   isLoading: boolean
