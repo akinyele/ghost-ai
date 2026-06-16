@@ -12,26 +12,31 @@ export async function PATCH(
 
   const { projectId } = await ctx.params;
 
-  const project = await prisma.project.findUnique({ where: { id: projectId } });
-  if (!project) {
-    return Response.json({ error: "Not found" }, { status: 404 });
+  try {
+    const project = await prisma.project.findUnique({ where: { id: projectId } });
+    if (!project) {
+      return Response.json({ error: "Not found" }, { status: 404 });
+    }
+    if (project.ownerId !== userId) {
+      return Response.json({ error: "Forbidden" }, { status: 403 });
+    }
+
+    const body = await request.json().catch(() => ({}));
+    const name =
+      typeof body.name === "string" && body.name.trim()
+        ? body.name.trim()
+        : project.name;
+
+    const updated = await prisma.project.update({
+      where: { id: projectId },
+      data: { name },
+    });
+
+    return Response.json(updated);
+  } catch (err) {
+    console.error("[PATCH /api/projects/:projectId]", err);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
   }
-  if (project.ownerId !== userId) {
-    return Response.json({ error: "Forbidden" }, { status: 403 });
-  }
-
-  const body = await request.json().catch(() => ({}));
-  const name =
-    typeof body.name === "string" && body.name.trim()
-      ? body.name.trim()
-      : project.name;
-
-  const updated = await prisma.project.update({
-    where: { id: projectId },
-    data: { name },
-  });
-
-  return Response.json(updated);
 }
 
 export async function DELETE(
@@ -45,6 +50,7 @@ export async function DELETE(
 
   const { projectId } = await ctx.params;
 
+  try {
   const project = await prisma.project.findUnique({ where: { id: projectId } });
   if (!project) {
     return Response.json({ error: "Not found" }, { status: 404 });
@@ -56,4 +62,8 @@ export async function DELETE(
   await prisma.project.delete({ where: { id: projectId } });
 
   return Response.json({ deleted: true });
+  } catch (error) {
+    console.error("Failed to delete project:", error);
+    return Response.json({ error: "Internal server error" }, { status: 500 });
+  }
 }
